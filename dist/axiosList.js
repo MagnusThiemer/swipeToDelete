@@ -21,13 +21,15 @@ window.addEventListener('DOMContentLoaded', function () {
         var jokeP = document.createElement('p');
         jokeP.classList.add('container__p');
         jokeP.textContent = response.data.joke;
-        jokeLi.appendChild(jokeP);
         var deleteButton = document.createElement('button');
         var saveButton = document.createElement('button');
+        deleteButton.classList.add('container__delete-button');
+        saveButton.classList.add('container__save-button');
         deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
         saveButton.innerHTML = '<i class="fas fa-bookmark"></i>';
         jokeLi.appendChild(saveButton);
         jokeLi.appendChild(deleteButton);
+        jokeLi.appendChild(jokeP);
         /*                 deleteButton(jokeLi, i);
                         saveButton(jokeLi, i); */
 

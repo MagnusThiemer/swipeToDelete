@@ -96,9 +96,9 @@
     display: none;
 }
 
-// SWIPE FUNCTION //
+// SWIPE FUNCTION WITH FLEX //
 
-  ul {
+/*   ul {
     overflow: hidden;
     list-style: none;
     padding: 0;
@@ -136,16 +136,56 @@
   
   li p {
     flex: 2 0 100%;
-/*     color: white;
-    background-color: slategrey;
-    padding: 0.5rem; */
   }
   
   li button:last-of-type {
     flex: 1 0 30%;
     font-size: 1.6rem;
     background-color: $delete;
+  } */
+
+  // SWIPE FUNCTION WITH GRID //
+
+  .container__li {
+    display: grid;
+    grid-template-columns: 1fr 70px 70px;
+    align-content: center;
+    padding: 0;
   }
+
+  .container__li > * {
+    display: flex;
+    min-height: 4rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container__p {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(170, 73, 73, 0.5);
+    margin: 0;
+    justify-self: flex-start;
+  }
+
+  .container__save-button {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    height: 100%;
+    margin: 0;
+
+  }
+
+  .container__delete-button {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    height: 100%;
+    margin: 0;
+  }
+
+  // MEDIA QUERY //
   
   @media only screen and (max-width: 600px) {
     .Main {
