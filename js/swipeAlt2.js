@@ -4,17 +4,18 @@ let container = document.querySelector('#container');
 let targetItem;
 
 container.addEventListener('touchstart', (event) => {
+    targetItem = event.target;
     if(event.target.tagName == `P`){
-        console.log(event.target);
         coordinateStart = event.touches[0].clientX;
-        targetItem = event.target;
     }
 })
 
 container.addEventListener('touchmove', (event) => {
-    coordinateMove = event.touches[0].clientX;
-    if(coordinateMove < coordinateStart){
-        targetItem.style.transform = `translateX(${coordinateMove - coordinateStart}px)`; 
-        console.log(targetItem.style.transform);
+    if(targetItem.tagName == 'P'){
+        let targetItemParent = targetItem.parentNode;
+        coordinateMove = event.touches[0].clientX;
+        if(coordinateMove < coordinateStart && coordinateMove > coordinateStart - (targetItemParent.clientWidth * 0.4)){
+            targetItem.style.transform = `translateX(${coordinateMove - coordinateStart}px)`; 
+        }
     }
 })
