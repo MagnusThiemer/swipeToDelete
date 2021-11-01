@@ -21,8 +21,8 @@ window.addEventListener('DOMContentLoaded', function () {
         var jokeP = document.createElement('p');
         jokeP.classList.add('container__p');
         jokeP.textContent = response.data.joke;
-        var deleteButton = document.createElement('button');
-        var saveButton = document.createElement('button');
+        var deleteButton = document.createElement('div');
+        var saveButton = document.createElement('div');
         deleteButton.classList.add('container__delete-button');
         saveButton.classList.add('container__save-button');
         deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
