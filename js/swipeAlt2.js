@@ -20,6 +20,7 @@ container.addEventListener('touchmove', (event) => {
     }
 })
 container.addEventListener('touchend', (event) => {
+    if(targetItem.tagName == 'P')
     if(coordinateMove < coordinateStart - (targetItemParent.clientWidth * 0.2)){
         targetItem.style.transform = `translateX(-${targetItemParent.clientWidth * 0.4}px)`;
     } else {

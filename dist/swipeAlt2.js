@@ -23,7 +23,7 @@ container.addEventListener('touchmove', function (event) {
   }
 });
 container.addEventListener('touchend', function (event) {
-  if (coordinateMove < coordinateStart - targetItemParent.clientWidth * 0.2) {
+  if (targetItem.tagName == 'P') if (coordinateMove < coordinateStart - targetItemParent.clientWidth * 0.2) {
     targetItem.style.transform = "translateX(-".concat(targetItemParent.clientWidth * 0.4, "px)");
   } else {
     targetItem.style.transform = "translateX(0)";
