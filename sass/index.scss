@@ -6,6 +6,15 @@
     justify-content: center;
 }
 
+@mixin button(){
+  grid-row: 1 / 2;
+  color: white;
+  height: 100%;
+  margin: 0;
+  border: none;
+  font-size: 1.2rem;
+}
+
 .Main {
     width: 60%;
     margin: 0 auto;
@@ -151,6 +160,7 @@
     grid-template-columns: 1fr 20% 20%;
     align-content: center;
     padding: 0;
+    overflow-x: hidden;
   }
 
   .container__li > * {
@@ -158,6 +168,7 @@
     min-height: 4rem;
     align-items: center;
     justify-content: center;
+    
   }
 
   .container__p {
@@ -168,24 +179,20 @@
     background-color: white;
     margin: 0;
     justify-self: flex-start;
+    transition: ease-in 150ms;
   }
 
   .container__save-button {
     grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    height: 100%;
-    margin: 0;
     background-color: $save;
-    border: none;
+    grid-row: 1 / 2;
+    @include button();
   }
 
   .container__delete-button {
     grid-column: 3 / 4;
-    grid-row: 1 / 2;
-    height: 100%;
-    margin: 0;
     background-color: $delete;
-    border: none;
+    @include button();
   }
 
   // MEDIA QUERY //
