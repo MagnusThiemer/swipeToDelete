@@ -1,8 +1,8 @@
 window.addEventListener('DOMContentLoaded', () => {
     const url = 'https://icanhazdadjoke.com/';
+    let container = document.querySelector('#container');
 
     const fetch10Jokes = () => {
-        let container = document.querySelector('#container');
         let jokeArray = [];
         container.innerHTML = '';
         for(let i = 0; i < 10; i++){
@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 let jokeLi = document.createElement('li');
                 jokeLi.classList.add('container__li');
                 jokeLi.id = `joke${i}`;
+                let jokeId = `joke${i}`;
                 let jokeP = document.createElement('p');
                 jokeP.classList.add('container__p')
                 jokeP.textContent = response.data.joke;
@@ -24,11 +25,10 @@ window.addEventListener('DOMContentLoaded', () => {
                 saveButton.classList.add('container__save-button');
                 deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
                 saveButton.innerHTML = '<i class="fas fa-bookmark"></i>';
+                deleteButton.addEventListener('click', () => deleteJoke(jokeId));
                 jokeLi.appendChild(saveButton);
                 jokeLi.appendChild(deleteButton);
                 jokeLi.appendChild(jokeP);
-/*                 deleteButton(jokeLi, i);
-                saveButton(jokeLi, i); */
                 container.appendChild(jokeLi);
             })
         }
@@ -39,8 +39,9 @@ window.addEventListener('DOMContentLoaded', () => {
     newJokeButtonElement.addEventListener('click', fetch10Jokes)
     fetch10Jokes();
 
-
-
-    /* SWIPE FUNCTION */
-    
+    function deleteJoke(elementId){
+        console.log('hej')
+        let removeJoke = document.querySelector(`#${elementId}`);
+        container.removeChild(removeJoke);
+    }
 })

@@ -2,9 +2,9 @@
 
 window.addEventListener('DOMContentLoaded', function () {
   var url = 'https://icanhazdadjoke.com/';
+  var container = document.querySelector('#container');
 
   var fetch10Jokes = function fetch10Jokes() {
-    var container = document.querySelector('#container');
     var jokeArray = [];
     container.innerHTML = '';
 
@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', function () {
         var jokeLi = document.createElement('li');
         jokeLi.classList.add('container__li');
         jokeLi.id = "joke".concat(i);
+        var jokeId = "joke".concat(i);
         var jokeP = document.createElement('p');
         jokeP.classList.add('container__p');
         jokeP.textContent = response.data.joke;
@@ -27,12 +28,12 @@ window.addEventListener('DOMContentLoaded', function () {
         saveButton.classList.add('container__save-button');
         deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
         saveButton.innerHTML = '<i class="fas fa-bookmark"></i>';
+        deleteButton.addEventListener('click', function () {
+          return deleteJoke(jokeId);
+        });
         jokeLi.appendChild(saveButton);
         jokeLi.appendChild(deleteButton);
         jokeLi.appendChild(jokeP);
-        /*                 deleteButton(jokeLi, i);
-                        saveButton(jokeLi, i); */
-
         container.appendChild(jokeLi);
       });
     };
@@ -46,5 +47,10 @@ window.addEventListener('DOMContentLoaded', function () {
   var newJokeButtonElement = document.querySelector('#containerButtonElement');
   newJokeButtonElement.addEventListener('click', fetch10Jokes);
   fetch10Jokes();
-  /* SWIPE FUNCTION */
+
+  function deleteJoke(elementId) {
+    console.log('hej');
+    var removeJoke = document.querySelector("#".concat(elementId));
+    container.removeChild(removeJoke);
+  }
 });
