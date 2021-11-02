@@ -50,6 +50,9 @@ window.addEventListener('DOMContentLoaded', function () {
 
   function deleteJoke(elementId) {
     var removeJoke = document.querySelector("#".concat(elementId));
-    container.removeChild(removeJoke);
+    removeJoke.classList.add('animate__animated', 'animate__fadeOutLeft');
+    setTimeout(function () {
+      container.removeChild(removeJoke);
+    }, 700);
   }
 });
