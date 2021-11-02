@@ -31,6 +31,11 @@
     }
 }
 
+.height__0 {
+  height: 0;
+  overflow: hidden;
+}
+
 .Container {
     @include flex();
     flex-wrap: wrap;

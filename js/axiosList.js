@@ -41,9 +41,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function deleteJoke(elementId){
         let removeJoke = document.querySelector(`#${elementId}`);
-        removeJoke.classList.add('animate__animated', 'animate__fadeOutLeft');
+        removeJoke.classList.add('animate__animated', 'animate__fadeOutLeft', 'height__0');
+        setTimeout(() => {
+            removeJoke.style.minHeight = '0';
+        }, 400)
         setTimeout(() => {
             container.removeChild(removeJoke);
-        }, 700)
+        }, 800)
     }
 })

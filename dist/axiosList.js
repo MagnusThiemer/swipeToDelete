@@ -50,9 +50,12 @@ window.addEventListener('DOMContentLoaded', function () {
 
   function deleteJoke(elementId) {
     var removeJoke = document.querySelector("#".concat(elementId));
-    removeJoke.classList.add('animate__animated', 'animate__fadeOutLeft');
+    removeJoke.classList.add('animate__animated', 'animate__fadeOutLeft', 'height__0');
+    setTimeout(function () {
+      removeJoke.style.minHeight = '0';
+    }, 400);
     setTimeout(function () {
       container.removeChild(removeJoke);
-    }, 700);
+    }, 800);
   }
 });
