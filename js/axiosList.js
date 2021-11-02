@@ -40,7 +40,6 @@ window.addEventListener('DOMContentLoaded', () => {
     fetch10Jokes();
 
     function deleteJoke(elementId){
-        console.log('hej')
         let removeJoke = document.querySelector(`#${elementId}`);
         container.removeChild(removeJoke);
     }

@@ -49,7 +49,6 @@ window.addEventListener('DOMContentLoaded', function () {
   fetch10Jokes();
 
   function deleteJoke(elementId) {
-    console.log('hej');
     var removeJoke = document.querySelector("#".concat(elementId));
     container.removeChild(removeJoke);
   }
