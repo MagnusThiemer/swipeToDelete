@@ -20,5 +20,4 @@ window.addEventListener('DOMContentLoaded', function () {
   };
 
   fillJokesArray();
-  console.log(jokesArray);
 });
