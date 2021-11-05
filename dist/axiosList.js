@@ -67,10 +67,16 @@ window.addEventListener('DOMContentLoaded', function () {
   });
 
   function deleteJoke(elementId) {
-    binArray.push(elementId);
-    localStorage.setItem('bin', binArray);
+    var joke = document.querySelector("#".concat(elementId)).querySelector('.container__p').textContent;
+    binArray.push({
+      id: elementId,
+      joke: joke
+    });
+    localStorage.setItem('bin', JSON.stringify(binArray));
+    console.log(JSON.parse(localStorage.getItem('bin')));
     var binCounterElement = document.querySelector('#binCounter');
     binCounterElement.style.display = 'flex';
+    binCounterElement.classList.add('animate__animated', 'animate__heartBeat');
     binCounterElement.textContent = binArray.length;
     var removeJoke = document.querySelector("#".concat(elementId));
     removeJoke.classList.add('animate__animated', 'animate__fadeOutLeft', 'height__0', 'animate__fast');
@@ -79,22 +85,30 @@ window.addEventListener('DOMContentLoaded', function () {
     }, 400);
     setTimeout(function () {
       container.removeChild(removeJoke);
+      binCounterElement.classList.remove('animate__heartBeat');
     }, 800);
   }
 
   function saveJoke(elementId) {
-    savedArray.push(elementId);
-    localStorage.setItem('saved', savedArray);
+    var joke = document.querySelector("#".concat(elementId)).querySelector('.container__p').textContent;
+    savedArray.push({
+      id: elementId,
+      joke: joke
+    });
+    localStorage.setItem('saved', JSON.stringify(savedArray));
+    console.log(JSON.parse(localStorage.getItem('saved')));
     var savedCounterElement = document.querySelector('#savedCounter');
     savedCounterElement.style.display = 'flex';
+    savedCounterElement.classList.add('animate__animated', 'animate__heartBeat');
     savedCounterElement.textContent = savedArray.length;
     var saveJoke = document.querySelector("#".concat(elementId));
-    saveJoke.classList.add('animate__animated', 'animate__slideOutDown', 'height__0', 'animate__fast');
+    saveJoke.classList.add('animate__animated', 'animate__zoomOutDown', 'height__0', 'animate__fast');
     setTimeout(function () {
       saveJoke.style.minHeight = '0';
     }, 400);
     setTimeout(function () {
       container.removeChild(saveJoke);
+      savedCounterElement.classList.remove('animate__heartBeat');
     }, 800);
   }
 });
