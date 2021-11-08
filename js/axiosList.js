@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
     const url = 'https://icanhazdadjoke.com/';
     let container = document.querySelector('#container');
+    const binCounterElement = document.querySelector('#binCounter');
 /*     localStorage.setItem('bin', [23, 35, 55, 'hello']);
     console.log(localStorage.bin);
     const bin = localStorage.bin
@@ -9,10 +10,14 @@ window.addEventListener('DOMContentLoaded', () => {
     /* ---------- LOCAL STORAGE EXAMPLE ---------- */
     let binArray = [];
     let savedArray = [];
-/*     binArray.push(23, 'hello', 33); */
-/*     localStorage.setItem('bin', binArray); */
-/*     console.log(localStorage.bin.split(',')); */
-    /* ------------------------------------------- */
+
+    /* -----------UPDATE LOCAL STORAGE ARRAYS ----------- */
+    if(localStorage.getItem('bin')){
+        binArray = JSON.parse(localStorage.getItem('bin'))
+        console.log(binArray)
+        binCounterElement.textContent = binArray.length;
+        binCounterElement.style.display = 'flex'
+    }
 
     const fetch10Jokes = () => {
         let jokeArray = [];
@@ -92,11 +97,11 @@ window.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('saved', JSON.stringify(savedArray));
         console.log(JSON.parse(localStorage.getItem('saved')));
 
-        const savedCounterElement = document.querySelector('#savedCounter');
+        
         savedCounterElement.style.display = 'flex';
         savedCounterElement.classList.add('animate__animated', 'animate__heartBeat')
         savedCounterElement.textContent = savedArray.length;
-        
+
         let saveJoke = document.querySelector(`#${elementId}`);
         saveJoke.classList.add('animate__animated', 'animate__zoomOutDown', 'height__0', 'animate__fast');
         setTimeout(() => {

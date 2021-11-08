@@ -3,6 +3,7 @@
 window.addEventListener('DOMContentLoaded', function () {
   var url = 'https://icanhazdadjoke.com/';
   var container = document.querySelector('#container');
+  var binCounterElement = document.querySelector('#binCounter');
   /*     localStorage.setItem('bin', [23, 35, 55, 'hello']);
       console.log(localStorage.bin);
       const bin = localStorage.bin
@@ -12,13 +13,14 @@ window.addEventListener('DOMContentLoaded', function () {
 
   var binArray = [];
   var savedArray = [];
-  /*     binArray.push(23, 'hello', 33); */
+  /* -----------UPDATE LOCAL STORAGE ARRAYS ----------- */
 
-  /*     localStorage.setItem('bin', binArray); */
-
-  /*     console.log(localStorage.bin.split(',')); */
-
-  /* ------------------------------------------- */
+  if (localStorage.getItem('bin')) {
+    binArray = JSON.parse(localStorage.getItem('bin'));
+    console.log(binArray);
+    binCounterElement.textContent = binArray.length;
+    binCounterElement.style.display = 'flex';
+  }
 
   var fetch10Jokes = function fetch10Jokes() {
     var jokeArray = [];
@@ -97,7 +99,6 @@ window.addEventListener('DOMContentLoaded', function () {
     });
     localStorage.setItem('saved', JSON.stringify(savedArray));
     console.log(JSON.parse(localStorage.getItem('saved')));
-    var savedCounterElement = document.querySelector('#savedCounter');
     savedCounterElement.style.display = 'flex';
     savedCounterElement.classList.add('animate__animated', 'animate__heartBeat');
     savedCounterElement.textContent = savedArray.length;
