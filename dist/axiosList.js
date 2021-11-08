@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', function () {
   var url = 'https://icanhazdadjoke.com/';
   var container = document.querySelector('#container');
   var binCounterElement = document.querySelector('#binCounter');
+  var savedCounterElement = document.querySelector('#savedCounter');
   /*     localStorage.setItem('bin', [23, 35, 55, 'hello']);
       console.log(localStorage.bin);
       const bin = localStorage.bin

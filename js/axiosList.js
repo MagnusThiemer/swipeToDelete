@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const url = 'https://icanhazdadjoke.com/';
     let container = document.querySelector('#container');
     const binCounterElement = document.querySelector('#binCounter');
+    const savedCounterElement = document.querySelector('#savedCounter');
 /*     localStorage.setItem('bin', [23, 35, 55, 'hello']);
     console.log(localStorage.bin);
     const bin = localStorage.bin
