@@ -11,22 +11,15 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     const deleteFromBin = (id) => {
-        let i = 0;
-        console.log(binArray)
-        binArray.forEach(element => {
-            if(element.id === id){
-                binArray.splice(i, 1);
-                let removeJoke = document.querySelector(`#${id}`);
-                removeJoke.classList.add('animate__animated', 'animate__fadeOutLeft', 'height__0', 'animate__fast');
-                setTimeout(() => {
-                    removeJoke.style.minHeight = '0';
-                }, 400)
-                setTimeout(() => {
-                    container.removeChild(removeJoke);
-                }, 800)
-                localStorage.setItem('bin', JSON.stringify(binArray));
-            };
-            i++;
-        })
+        binArray = binArray.filter(item => item.id !== id);
+        let removeJoke = document.querySelector(`#${id}`);
+        removeJoke.classList.add('animate__animated', 'animate__fadeOutLeft', 'height__0', 'animate__fast');
+        setTimeout(() => {
+            removeJoke.style.minHeight = '0';
+        }, 400)
+        setTimeout(() => {
+            container.removeChild(removeJoke);
+        }, 800)
+        localStorage.setItem('bin', JSON.stringify(binArray));
     }
 })

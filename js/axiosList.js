@@ -15,9 +15,10 @@ window.addEventListener('DOMContentLoaded', () => {
     /* -----------UPDATE LOCAL STORAGE ARRAYS ----------- */
     if(localStorage.getItem('bin')){
         binArray = JSON.parse(localStorage.getItem('bin'))
-        console.log(binArray)
-        binCounterElement.textContent = binArray.length;
-        binCounterElement.style.display = 'flex'
+        if(binArray.length !== 0){
+            binCounterElement.textContent = binArray.length;
+            binCounterElement.style.display = 'flex'
+        }
     }
 
     const fetch10Jokes = () => {
@@ -73,7 +74,6 @@ window.addEventListener('DOMContentLoaded', () => {
             joke: joke
         });
         localStorage.setItem('bin', JSON.stringify(binArray));
-        console.log(JSON.parse(localStorage.getItem('bin')));
         const binCounterElement = document.querySelector('#binCounter');
         binCounterElement.style.display = 'flex';
         binCounterElement.classList.add('animate__animated', 'animate__heartBeat')
@@ -96,8 +96,6 @@ window.addEventListener('DOMContentLoaded', () => {
             joke: joke
         });
         localStorage.setItem('saved', JSON.stringify(savedArray));
-        console.log(JSON.parse(localStorage.getItem('saved')));
-
         
         savedCounterElement.style.display = 'flex';
         savedCounterElement.classList.add('animate__animated', 'animate__heartBeat')

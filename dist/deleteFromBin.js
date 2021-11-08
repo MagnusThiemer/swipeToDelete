@@ -12,24 +12,17 @@ window.addEventListener('DOMContentLoaded', function () {
   });
 
   var deleteFromBin = function deleteFromBin(id) {
-    var i = 0;
-    console.log(binArray);
-    binArray.forEach(function (element) {
-      if (element.id === id) {
-        binArray.splice(i, 1);
-        var removeJoke = document.querySelector("#".concat(id));
-        removeJoke.classList.add('animate__animated', 'animate__fadeOutLeft', 'height__0', 'animate__fast');
-        setTimeout(function () {
-          removeJoke.style.minHeight = '0';
-        }, 400);
-        setTimeout(function () {
-          container.removeChild(removeJoke);
-        }, 800);
-        localStorage.setItem('bin', JSON.stringify(binArray));
-      }
-
-      ;
-      i++;
+    binArray = binArray.filter(function (item) {
+      return item.id !== id;
     });
+    var removeJoke = document.querySelector("#".concat(id));
+    removeJoke.classList.add('animate__animated', 'animate__fadeOutLeft', 'height__0', 'animate__fast');
+    setTimeout(function () {
+      removeJoke.style.minHeight = '0';
+    }, 400);
+    setTimeout(function () {
+      container.removeChild(removeJoke);
+    }, 800);
+    localStorage.setItem('bin', JSON.stringify(binArray));
   };
 });

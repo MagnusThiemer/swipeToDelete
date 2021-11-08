@@ -4,7 +4,6 @@ window.addEventListener('DOMContentLoaded', function () {
   var binArray = JSON.parse(localStorage.getItem('bin'));
   var savedArray = JSON.parse(localStorage.getItem('saved'));
   var container = document.querySelector('#container');
-  console.log(binArray, savedArray);
   var emptyBinButtonElement = document.querySelector('#emptyBinButton');
 
   var generateBinList = function generateBinList(array) {
@@ -36,7 +35,6 @@ window.addEventListener('DOMContentLoaded', function () {
     binArray = [];
     localStorage.setItem('bin', binArray);
     container.innerHTML = '';
-    console.log('clicked');
   });
   generateBinList(binArray);
 });
