@@ -20,6 +20,10 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             container.removeChild(removeJoke);
         }, 800)
-        localStorage.setItem('bin', JSON.stringify(binArray));
+        if(binArray.length > 0){
+            localStorage.setItem('bin', JSON.stringify(binArray));
+        } else {
+            localStorage.removeItem('bin');
+        }
     }
 })

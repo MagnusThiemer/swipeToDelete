@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   emptyBinButtonElement.addEventListener('click', function () {
     binArray = [];
-    localStorage.setItem('bin', binArray);
+    localStorage.removeItem('bin');
     container.innerHTML = '';
   });
   generateBinList(binArray);

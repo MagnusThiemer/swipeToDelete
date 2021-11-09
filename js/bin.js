@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     emptyBinButtonElement.addEventListener('click', () => {
         binArray = [];
-        localStorage.setItem('bin', binArray);
+        localStorage.removeItem('bin');
         container.innerHTML = '';
     })
     generateBinList(binArray);
